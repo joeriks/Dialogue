@@ -196,7 +196,7 @@ namespace Dialogue.Logic.Controllers.OAuthControllers
                                 };
 
                                 // Get the image and save it
-                                var getImageUrl = string.Format("http://graph.facebook.com/{0}/picture?type=normal", me.UserName);
+                                var getImageUrl = string.Format("http://graph.facebook.com/{0}/picture?type=normal", me.Id);
                                 viewModel.SocialProfileImageUrl = getImageUrl;
 
                                 return RedirectToAction("MemberRegisterLogic", "DialogueLoginRegisterSurface", viewModel);
