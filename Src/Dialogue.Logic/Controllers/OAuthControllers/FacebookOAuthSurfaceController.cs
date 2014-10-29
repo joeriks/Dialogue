@@ -153,17 +153,13 @@ namespace Dialogue.Logic.Controllers.OAuthControllers
                         // Make a call to the Facebook API to get information about the user
                         var me = service.Methods.Me();
 
-                        // Get debug information about the access token
-                        var debug = service.Methods.DebugToken(userAccessToken);
-
+                        
                         // Set the callback data
                         var data = new FacebookOAuthData
                         {
                             Id = me.Id,
                             Name = me.Name ?? me.UserName,
-                            AccessToken = userAccessToken,
-                            ExpiresAt = debug.ExpiresAt == null ? default(DateTime) : debug.ExpiresAt.Value,
-                            Scope = debug.Scopes,
+                            AccessToken = userAccessToken,                            
                             Email = obj.GetString("email")
                         };
 
